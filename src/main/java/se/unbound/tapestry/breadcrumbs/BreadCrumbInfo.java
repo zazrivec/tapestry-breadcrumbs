@@ -12,7 +12,7 @@ import org.apache.tapestry5.Link;
 public class BreadCrumbInfo implements Serializable {
     private static final long serialVersionUID = 4242583224611192888L;
     private final String titleKey;
-    private final transient Link link;
+    private final Link link;
     private final String pageName;
     private String title;
 

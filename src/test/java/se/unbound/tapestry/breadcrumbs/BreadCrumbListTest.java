@@ -1,6 +1,6 @@
 package se.unbound.tapestry.breadcrumbs;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Iterator;
 
@@ -78,8 +78,20 @@ public class BreadCrumbListTest {
         assertEquals("crumb 2", "page3", iterator.next().getPageName());
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void getLastCrumbThrowsIllegalStateExceptionIfCrumbListIsEmpty() {
-        this.nonDiscardingLimitedList.getLastCrumb();
+    @Test
+    public void getLastCrumbIsNullIfCrumbListIsEmpty() {
+        assertNull(this.nonDiscardingLimitedList.getLastCrumb());
     }
+
+    @Test
+    public void getPreviousCrumbIsNullIfCrumbListIsEmpty() {
+        assertNull(this.nonDiscardingLimitedList.getPreviousCrumb());
+    }
+
+    @Test
+    public void getPreviousCrumbIsNullIfCrumbListSizeIsOne() {
+        this.nonDiscardingLimitedList.add(new BreadCrumbInfo("key", new LinkMock("/index"), "page1"));
+        assertNull(this.nonDiscardingLimitedList.getPreviousCrumb());
+    }
+
 }

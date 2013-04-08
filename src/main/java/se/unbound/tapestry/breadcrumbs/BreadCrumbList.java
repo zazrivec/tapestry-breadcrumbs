@@ -97,9 +97,23 @@ public class BreadCrumbList implements Iterable<BreadCrumbInfo>, Serializable {
     public BreadCrumbInfo getLastCrumb() {
         synchronized (this.crumbs) {
             if (this.crumbs.isEmpty()) {
-                throw new IllegalStateException("No crumbs to fetch.");
+                return null;
             }
             return this.crumbs.get(this.crumbs.size() - 1);
+        }
+    }
+    
+    /**
+     * Retrieve the previous crumb (previous visited page)
+     * 
+     * @return The previous crumb in the list or null if the list has no previous crumb.
+     */
+    public BreadCrumbInfo getPreviousCrumb() {
+        synchronized (this.crumbs) {
+            if (this.crumbs.size() < 2) {
+                return null;
+            }
+            return this.crumbs.get(this.crumbs.size() - 2);
         }
     }
 }
