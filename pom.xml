@@ -24,11 +24,29 @@
     </license>
   </licenses>
 
-  <scm>
-    <url>git@github.com:argoyle/tapestry-breadcrumbs.git</url>
-    <connection>scm:git:git@github.com:argoyle/tapestry-breadcrumbs.git</connection>
-    <developerConnection>scm:git:git@github.com:argoyle/tapestry-breadcrumbs.git</developerConnection>
-  </scm>
+    <scm>
+        <url>git@github.com/zazrivec/tapestry-breadcrumbs</url>
+        <connection>scm:git:git://github.com/zazrivec/tapestry-breadcrumbs.git</connection>
+        <developerConnection>scm:git:git@github.com:zazrivec/tapestry-breadcrumbs.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Internal Releases</name>
+            <url>http://jedi/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Internal Snapshots</name>
+            <url>http://jedi/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <site>
+            <id>webdav</id>
+            <name>webdav demo site</name>
+            <url>dav:http://jedi/sites-dav/</url>
+        </site>
+    </distributionManagement>
 
   <developers>
     <developer>
